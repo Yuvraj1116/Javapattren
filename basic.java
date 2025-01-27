@@ -74,24 +74,26 @@ package Javapattren;
 
 import java.util.*;
 public class basic{
+  public static int factorial(int n){
+    int fact=1;
+        for(int i=1; i<=n;i++){
+          fact = fact*i;
+      }
+      return fact;
+    } 
 
-  public static int hello(){
-    System.out.println("Hello Word");
-    System.out.println("Hello Word");
-    System.out.println("Hello Word");
-    return 0;
-  }
+    public static int binCoff(int n, int r ){
+      int fac_n =factorial(n);
+      int fac_r = factorial(r);
+      int nmr_fac = factorial(n-r);
 
-  public static int multiply(int a , int b){
-        int product = a*b;
-      return product;
-  }
-  public static void main(String[]args){
-    Scanner sc = new Scanner(System.in);
-      int a =3;
-      int b=5;
-   int product = multiply(a,b);
-   System.out.println(product);
+        int binoCoff = fac_n/(fac_r*nmr_fac);
+        return binoCoff;
+    }
+  public static void main(String args[]){
+    System.out.println(binCoff(5, 2));
             
+   int faco= factorial(18);
+   System.out.println("Factorial of 18 is :"+faco );
 }
 }

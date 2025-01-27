@@ -74,20 +74,24 @@ package Javapattren;
 
 import java.util.*;
 public class basic{
-public static void main(String[]args){
-        int n=6;
 
-        int val=1;
-   for(int row=1; row<=n;row++){
-    for(int col=1 ; col<=n;col++){
-      if(row - col >=0 ){
-      System.out.print(val+ " ");    
-      val++; 
-      }else{
-        System.out.print(" ");
-      }
-    }
-    System.out.println();
-   }
+  public static int hello(){
+    System.out.println("Hello Word");
+    System.out.println("Hello Word");
+    System.out.println("Hello Word");
+    return 0;
+  }
+
+  public static int multiply(int a , int b){
+        int product = a*b;
+      return product;
+  }
+  public static void main(String[]args){
+    Scanner sc = new Scanner(System.in);
+      int a =3;
+      int b=5;
+   int product = multiply(a,b);
+   System.out.println(product);
+            
 }
 }

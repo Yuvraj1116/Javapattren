@@ -1,6 +1,8 @@
 package Javapattren;
 // import java.util.*;
 
+import javax.swing.text.html.StyleSheet;
+
 // public class basic {
 //     public static void main(String args[]){
 
@@ -175,22 +177,26 @@ package Javapattren;
 
 //INVERTED & ROTATED HALF-PYRAMID WITH NUMBERS
  
-public class basic {
+// public class basic {
 
-  public static void Butterfly(int n){
-      for(int i=1;i<=n;i++){
-        for(int j=1;j<=n-i;j++){
-          System.out.print(" ");
-        }
-        for(int j=1; j<=n; j++){ 
-          System.out.print("*"+ " ");
-        }
-        System.out.println();
-      }
-  }
+//   public static void hollow_rhombus(int n){
+//       for(int i=1;i<=n;i++){
+//         for(int j=1;j<=n-i;j++){
+//           System.out.print(" ");
+//         }
+//         for(int j=1;j<=n;j++){
 
-public static void main(String args[]){
-  Butterfly(10);
-} 
+//           if(i==1||j==1||i==n||j==n){
+//          System.out.print("*");
+//         }else{
+//           System.out.print(" ");
+//           }
+//       }
+//       System.out.println();
+//   } 
+//   }
+// public static void main(String args[]){
+//   hollow_rhombus(7);
+// } 
 
-}
+// }

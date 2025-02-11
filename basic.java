@@ -203,40 +203,39 @@ import javax.swing.text.html.StyleSheet;
 
 // Dimaond pattern
 
-public class basic {
+// public class basic {
 
- public static void dimaond(int n) {
-      for(int i=1; i<=n;i++){
-        //spaces
-        for(int j=1; j<=(n-i);j++){
-          System.out.print(" ");
-        }
-        //Stars
-        for(int j=1;j<=i;j++){
-          System.out.print("*");
-        }
-        for(int j=2;j<=i;j++){
-          System.out.print("*");
-        }
+//  public static void dimaond(int n) {
+//       for(int i=1; i<=n;i++){
+//         //spaces
+//         for(int j=1; j<=(n-i);j++){
+//           System.out.print(" ");
+//         }
+//         //Stars
+//         for(int j=1;j<=i;j++){
+//           System.out.print("*");
+//         }
+//         for(int j=2;j<=i;j++){
+//           System.out.print("*");
+//         }
         
-        System.out.println();
-      }
-      for(int i=n;i>=1;i--){
-        for(int j=1; j<=n-i;j++){
-          System.out.print(" ");
-        }
-        for(int j=1;j<=i;j++){
-          System.out.print("*");
-        }
-        for(int j=2;j<=i;j++){
-          System.out.print("*");
-        }
-        System.out.println();
-      }
-    }
-public static void main(String args[]) {
-  dimaond(4);
-}
+//         System.out.println();
+//       }
+//       for(int i=n;i>=1;i--){
+//         for(int j=1; j<=n-i;j++){
+//           System.out.print(" ");
+//         }
+//         for(int j=1;j<=i;j++){
+//           System.out.print("*");
+//         }
+//         for(int j=2;j<=i;j++){
+//           System.out.print("*");
+//         }
+//         System.out.println();
+//       }
+//     }
+// public static void main(String args[]) {
+//   dimaond(4);
+// }
 
-}
-
+// }

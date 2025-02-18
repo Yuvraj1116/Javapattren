@@ -159,30 +159,29 @@
 
 public class array {
 
-     public static void subArray(int numbers[]){
-        int sum =0; int max = 0;
+    public static void subArray(int numbers[]){
+        int sum =0; int max = Integer.MIN_VALUE;
+
+
         for(int i=0;i<numbers.length;i++){
             int start = i;
             for(int j=i;j<numbers.length;j++){
                 int end = j;
-            
+                sum = 0;    
             for(int k =start; k<=end;k++){
                 
-            System.out.print(numbers[k]+" ");
+            // System.out.print(numbers[k]+" ");
             sum+=numbers[k];
         }
-        System.out.println();
-        
+        System.out.println(sum);
+        if(max<sum){
+            max = sum;
+        }
     }
-    System.out.println("Sum is"+sum);
-    sum = 0;
-    
+    // System.out.println("Sum is"+sum);
     System.out.println();
 }
-if(max<sum){
-    max = sum;
-    System.out.print("Maximum Number is"+max);
- }
+System.out.print("Maximum Number is"+max);
 }
  
      public static void main(String args[]){
@@ -190,6 +189,4 @@ if(max<sum){
         subArray(numbers);
      }
 }
-
-
 

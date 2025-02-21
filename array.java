@@ -155,38 +155,138 @@
 
 // }
 
-//Print SubArrays
+//Print SubArrays Brute Force(Slower then prefix Array)   time complexcity=O(n3)
+// public class array {
+
+//     public static void subArray(int numbers[]){
+//         int sum =0; int max = Integer.MIN_VALUE;
+
+
+//         for(int i=0;i<numbers.length;i++){
+//             int start = i;
+//             for(int j=i;j<numbers.length;j++){
+//                 int end = j;
+//                 sum = 0;    
+//             for(int k =start; k<=end;k++){
+                
+//             // System.out.print(numbers[k]+" ");
+//             sum+=numbers[k];
+//         }
+//         System.out.println(sum);
+//         if(max<sum){
+//             max = sum;
+//         }
+//     }
+//     // System.out.println("Sum is"+sum);
+//     System.out.println();
+// }
+// System.out.print("Maximum Number is"+max);
+// }
+ 
+//      public static void main(String args[]){
+//         int numbers [] ={2,4,6,8,10};
+//         subArray(numbers);
+//      }
+// }
+
+
+// max SubArray Sum (using Prifix Array for better performance) time complexcity = O(n2)
+// public class array {
+
+//     public static void maxSubPrefix(int number[]){
+//         int currSum = 0;
+//         int maxSum = Integer.MIN_VALUE;
+//         int prefix[] = new int[number.length];
+        
+//         // calculate Prefix array
+//         prefix[0] = number[0];
+//         for(int i=1; i<prefix.length;i++){
+//             prefix[i] = prefix[i-1]+ number[i];
+//         }
+
+
+//         for(int i=0; i<number.length;i++){
+//             int start = i;
+//             for(int j=0;j<number.length;j++){
+//                 int end =j;
+
+//                 currSum = start== 0 ?prefix[end] : prefix[end] - prefix[start -1];
+
+//                 if(maxSum < currSum){
+//                     maxSum =currSum;
+//                 }
+//             }
+//         }
+//         System.out.println("Max Sum = " + maxSum);
+//     }
+     
+
+//     public static void main(String args[]){
+//         int number[] = {2,4,-6,10}; 
+//         maxSubPrefix(number);
+//     }
+// }
+
+//MaxSubArraySum (using Kadane's Algoritham) Time Complexcity = O(n)
+
+// public class array{
+//     public static void maxSubKadnes(int number[]){
+//             int MaxSum = Integer.MIN_VALUE; int currSum = 0;
+//         for(int i = 0; i< number.length;i++){
+//               currSum = currSum + number[i];
+
+//               if(currSum < 0){
+//                 currSum = 0;
+//               }
+//               MaxSum = Math.max(currSum, MaxSum);
+//         }
+//         System.out.println("Our Max Subaarry sum is = "+ MaxSum);
+
+//     }
+
+
+//     public static void main(String args[]){
+//         int number[] = {-2,-3,4,-1,-2,1,5,-3};
+//         maxSubKadnes(number);
+//     }
+// }
+
+
+// Trzpping Rain WAter Question 
+
+
 
 public class array {
+    public static void trappingRainwater(int height[]){
+      
+        // CAlculate left max boundary -helper array
+      int leftMax[] = new int [height.length];
+         leftMax [0] = height[0];
+         for( int i=1; i<height.length;i++){
+            leftMax[i] = Math.max(height[i], leftMax[i-1]);
+         }
 
-    public static void subArray(int numbers[]){
-        int sum =0; int max = Integer.MIN_VALUE;
+         //calculate Right Max boundary -helper array
+         int rightMax[] = new int [height.length];
+         rightMax[height.length-1] = height[height.length-1];
+          for(int i= height.length-2; i>=0; i-- ){
+            rightMax[i] = Math.max(height[i],rightMax[i+1]);
+          }
+       
+          // Loop For measuring WaterLevel
+          int trappedWater = 0; 
+          for(int i=0;i<height.length;i++){
+            // WaterLevel = min(LeftMax , rightMAx)
+            int waterLevel = Math.min(leftMax[i],rightMax[i]);
+            //trapped water = waterLevel - heigth[i]
+            trappedWater += waterLevel - height[i]; 
+          }
+          System.out.println(trappedWater); 
 
-
-        for(int i=0;i<numbers.length;i++){
-            int start = i;
-            for(int j=i;j<numbers.length;j++){
-                int end = j;
-                sum = 0;    
-            for(int k =start; k<=end;k++){
-                
-            // System.out.print(numbers[k]+" ");
-            sum+=numbers[k];
-        }
-        System.out.println(sum);
-        if(max<sum){
-            max = sum;
-        }
     }
-    // System.out.println("Sum is"+sum);
-    System.out.println();
-}
-System.out.print("Maximum Number is"+max);
-}
- 
+
      public static void main(String args[]){
-        int numbers [] ={2,4,6,8,10};
-        subArray(numbers);
+        int height[] = {4,2,0,6,3,2,5};
+        trappingRainwater(height);
      }
 }
-

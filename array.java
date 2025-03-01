@@ -1,6 +1,9 @@
  package Javapattren;
  import java.util.*;
 
+import javax.swing.plaf.metal.MetalBorders.Flush3DBorder;
+import javax.swing.text.html.StyleSheet;
+
 //  Array
 
 // public class array {
@@ -339,44 +342,144 @@
 
 // Product Puzzle  time complexcity (using prefix suffix array) optimized code
 
+// public class array {
+//     public  int[] productPuzzle(int [] nums){
+//         int n = nums.length;
+//         int [] prefix = new int [n];
+//         int [] suffix = new int [n];
+
+//         prefix[0] = nums[0];
+//         for(int i =1; i<n; i++){
+//             prefix[i] = prefix[i-1] * nums[i];
+//         }
+
+//         suffix[n-1] = nums[n-1];
+//         for(int i=n-2;i>=0;i--){
+//             suffix[i] = suffix[i+1] *nums[i];
+//         }
+//         int []res = new int[n];
+//         for(int i=1; i<n-1;i++){
+//             res[i] = prefix[i-1] * suffix [i+1];
+//         }
+
+//         res[0] = suffix[1];
+//         res[n-1] = prefix[n-2];
+        
+//         return res;
+//     } 
+
+
+//     public static void main (String args[]){
+        
+//          array s1 =  new array();
+        
+//         int [] nums = {1,2,3,4,5};
+
+//         int [] res = s1.productPuzzle(nums);
+
+//         for(int i=0 ; i<res.length;i++){
+//             System.out.println(res[i]);
+//         }
+
+//     }
+// }
+
+//Binnary Search queation DSA Question 
+
+// public class array{
+//     public static int binnaeryquestion(int arr[],int key){
+//         int n = arr.length;
+//         int start =0;
+//         int end = n-1;
+
+//         while(start <= end){
+//             int mid = (start + end)/2;
+//             if(arr[mid] == key){
+//                 return mid;
+//             }
+//             if(arr[mid] <=key){
+//                 start = mid+1;
+//             }else{
+//                 end= mid-1;
+//             } 
+//         }
+//         return -1;
+
+        
+//     }
+
+//     public static void main(String args[]){
+//         int arr [] = {5,11,14,19,30,35}; 
+//         int key =14;
+
+//         System.out.println(binnaeryquestion(arr, key));
+//     }
+// }
+
+
+//Sorted roated array DSA Question 
+
 public class array {
-    public  int[] productPuzzle(int [] nums){
-        int n = nums.length;
-        int [] prefix = new int [n];
-        int [] suffix = new int [n];
+    public static int pivotArry(int arr[], int key){
+        int  n = arr.length;
+         int left = 0;
+         int right = n-1;
 
-        prefix[0] = nums[0];
-        for(int i =1; i<n; i++){
-            prefix[i] = prefix[i-1] * nums[i];
+         while(left<right){
+            int mid = (left+right)/2;
+            if(arr[mid] > arr[right]){
+                left = mid+1;
+            }else{
+                right = mid;
+            }    
         }
+        int shift = right;
+        System.out.println("kshdi"+shift);
+         left =0;
+         right = n-1;
 
-        suffix[n-1] = nums[n-1];
-        for(int i=n-2;i>=0;i--){
-            suffix[i] = suffix[i+1] *nums[i];
+        while (left<=right) {
+               int  mid = (left + right)/2;
+               int realmid = (mid+shift)%n;
+               
+               if(arr[realmid] == key){
+                return realmid;
+               }else if(arr[realmid]< key){
+                 left = mid+1;
+               }else{
+                right = mid-1;
+               }
         }
-        int []res = new int[n];
-        for(int i=1; i<n-1;i++){
-            res[i] = prefix[i-1] * suffix [i+1];
-        }
+         return -1;
+    }
 
-        res[0] = suffix[1];
-        res[n-1] = prefix[n-2];
+    public static void main(String args[]){
+        int arr [] = {2,4,5,6,7,0,1};
+        int key = 0;
+
+        int index = pivotArry(arr, key);
+        System.out.println(index);
         
-        return res;
-    } 
-
-
-    public static void main (String args[]){
-        
-         array s1 =  new array();
-        
-        int [] nums = {1,2,3,4,5};
-
-        int [] res = s1.productPuzzle(nums);
-
-        for(int i=0 ; i<res.length;i++){
-            System.out.println(res[i]);
-        }
-
     }
 }
+
+
+
+// public class array {
+//     public static boolean duplicate( int nums[]){
+//     for(int i=0 ; i<nums.length-1; i++){
+//         for(int j=i+1; j<nums.length; j++){
+//             if(nums[i] == nums[j]){
+//                 return true;
+//             }
+//         }
+//     }
+//     return false;
+//     }
+//     public static void main(String args[]){
+//         int nums[] ={1,2,3};
+//         System.out.println(duplicate( nums));
+        
+//     }
+    
+// }
